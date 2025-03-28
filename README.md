@@ -20,3 +20,37 @@ ___
     <img src="https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" /> 
     <img src="https://img.shields.io/badge/docker-257bd6?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
   </div>
+
+
+## Pré-requisitos
+
+Docker
+Docker Compose
+
+## Iniciando o Projeto
+
+### Clone o repositório:
+
+bash git clone [taskify.git](https://github.com/yvesas/taskify-project)
+cd taskify
+
+bash git clone [taskify-backend.git](https://github.com/yvesas/taskify-backend)
+
+bashCopiargit[taskify-frontend.git](https://github.com/yvesas/taskify-frontend)
+
+
+## Iniciar todos os serviços:
+
+bash docker-compose up --build
+
+## Serviços
+
+Frontend: http://localhost:3000
+Backend: http://localhost:3333
+Banco de Dados: PostgreSQL na porta padrão
+
+## Estrutura do Projeto
+
+taskify-frontend/: Código-fonte do frontend React
+taskify-backend/: Código-fonte do backend Nest.js
+docker-compose.yml: Configuração de orquestração de serviços
