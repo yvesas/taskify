@@ -13,34 +13,46 @@ services:
       - "5432:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U bond -d taskify"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
 
   backend:
     build:
       context: ./taskify-backend
       dockerfile: Dockerfile
     container_name: taskify-backend
-    restart: always
+    restart: unless-stopped
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     environment:
-      DATABASE_URL: postgresql://bond:jamesbond007@db:5432/taskify
-      NODE_ENV: production
+      - DATABASE_URL=postgresql://bond:jamesbond007@db:5432/taskify
+      - NODE_ENV=production
+      - PORT=3000
+      - JWT_SECRET=007mynameisbond
+      - APP_URL=http://frontend
     ports:
       - "3000:3000"
     volumes:
       - ./taskify-backend:/usr/src/app
       - /usr/src/app/node_modules
+      - /usr/src/app/dist
 
   frontend:
     build:
       context: ./taskify-frontend
       dockerfile: Dockerfile
     container_name: taskify-frontend
-    restart: always
+    restart: unless-stopped
     depends_on:
       - backend
+    environment:
+      - VITE_API_URL=http://backend:3000
     ports:
-      - "80:80"
+      - "5173:80"
 
 volumes:
   pgdata:
