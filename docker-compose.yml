@@ -21,36 +21,33 @@ services:
 
   backend:
     build:
-      context: ./taskify-backend
+      context: ./backend
       dockerfile: Dockerfile
     container_name: taskify-backend
     restart: unless-stopped
     depends_on:
       db:
         condition: service_healthy
-    environment:
-      - DATABASE_URL=postgresql://bond:jamesbond007@db:5432/taskify
-      - NODE_ENV=production
-      - PORT=3000
-      - JWT_SECRET=007mynameisbond
-      - APP_URL=http://frontend
+    env_file:
+      - ./backend/.env.docker
     ports:
       - "3000:3000"
     volumes:
-      - ./taskify-backend:/usr/src/app
+      - ./backend:/usr/src/app
       - /usr/src/app/node_modules
       - /usr/src/app/dist
+      - /usr/src/app/prisma
 
   frontend:
     build:
-      context: ./taskify-frontend
+      context: ./frontend
       dockerfile: Dockerfile
     container_name: taskify-frontend
     restart: unless-stopped
     depends_on:
       - backend
-    environment:
-      - VITE_API_URL=http://backend:3000
+    env_file:
+      - ./frontend/.env.docker
     ports:
       - "5173:80"
 
