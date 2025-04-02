@@ -4,13 +4,40 @@ Is a micro-SaaS for freelancers and small teams to manage tasks. It allows you t
 with Nest.js, Prisma, PostgreSQL, React.js, TailwindCSS, ShadcnUI, Docker, Typescript.
 
 
-### Estrutura do Projeto
+---
 
-taskify-frontend/: Código-fonte do frontend React [Taskify-backend](https://github.com/yvesas/taskify-backend)
+## Project Structure
 
-taskify-backend/: Código-fonte do backend Nest.js [Taskify-frontend](https://github.com/yvesas/taskify-frontend)
+- docker-compose.yml: Service orchestration configuration
 
-docker-compose.yml: Configuração de orquestração de serviços
+- Submodule git taskify-frontend: [Taskify-backend](https://github.com/yvesas/taskify-backend)
+
+- Submodule git taskify-backend: [Taskify-frontend](https://github.com/yvesas/taskify-frontend)
+
+---
+
+## Prerequisites
+
+Before you begin, make sure you have installed:
+
+[Docker and Docker Compose](https://docs.docker.com/get-docker/)
+
+
+## **🚀 Running the Application**
+
+```
+ docker compose up --build
+```
+---
+
+
+## 🏁 Accessing the application
+
+The application will be available at:
+
+Frontend: [`http://localhost:5173`](http://localhost:5173)
+
+Backend - API: [`http://localhost:3000`](http://localhost:3000)
 
 ---
 
@@ -23,40 +50,5 @@ docker-compose.yml: Configuração de orquestração de serviços
     <img src="https://img.shields.io/badge/shadcn/ui-000000?style=for-the-badge&logo=shadcn/ui&logoColor=white" alt="Shadcn/ui" />      
     <img src="https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" /> 
     <img src="https://img.shields.io/badge/docker-257bd6?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
-  </div>
-
-## Pré-requisitos
-
-Docker
-Docker Compose
-
-## Iniciando o Projeto
-
-### Clone o repositório:
-
-```
-git clone taskify.git
-cd taskify
-```
-
-```
-git clone taskify-backend.git
-```
-
-```
-git clone taskify-frontend.git
-```
-
-## Iniciar todos os serviços:
-
-```
- docker-compose up --build
-```
-
-## Serviços
-
-Frontend: http://localhost:5173
-Backend: http://localhost:3000
-Banco de Dados: PostgreSQL na porta padrão
-
+</div>
 
