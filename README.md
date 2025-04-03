@@ -29,6 +29,7 @@ git clone --recursive https://github.com/yvesas/hidoctor-backend.git
 
 The `--recursive` parameter already automatically downloads the submodules (frontend and backend).
 
+
 #### 2. If you have already cloned without submodules
 
 Run inside the project folder:
@@ -36,6 +37,7 @@ Run inside the project folder:
 ```
 git submodule update --init --recursive
 ```
+#### 3. Finally start Docker
 
 ```
  docker compose up --build
