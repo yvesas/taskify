@@ -24,7 +24,7 @@ Before you begin, make sure you have installed:
 #### 1. Clone the main repository WITH the submodules
 
 ```
-git clone --recursive https://github.com/yvesas/hidoctor-backend.git
+git clone --recursive https://github.com/yvesas/taskify-project.git
 ```
 
 The `--recursive` parameter already automatically downloads the submodules (frontend and backend).
